@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   button: {
     borderRadius: 4,
     padding: 8,
-    backgroundColor: GlobalStyles.colors.primary600,
+    backgroundColor: GlobalStyles.colors.blue500,
   },
   flat: {
     backgroundColor: "transparent",
@@ -35,11 +35,11 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   flatText: {
-    color: GlobalStyles.colors.primary600,
+    color: GlobalStyles.colors.blue400,
   },
   pressed: {
     opacity: 0.75,
-    backgroundColor: GlobalStyles.colors.primary50,
+    backgroundColor: "#ccc",
     borderRadius: 4,
   },
 });

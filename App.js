@@ -25,11 +25,11 @@ function ExpensesOverview() {
   return (
     <BottomTabs.Navigator
       screenOptions={({ navigation }) => ({
-        headerStyle: { backgroundColor: GlobalStyles.colors.primary500 },
+        headerStyle: { backgroundColor: GlobalStyles.colors.blue500 },
         headerTintColor: "white",
-        tabBarStyle: { backgroundColor: GlobalStyles.colors.primary500 },
-        tabBarActiveTintColor: "white",
-        tabBarInactiveTintColor: GlobalStyles.colors.primary400,
+        tabBarStyle: { backgroundColor: GlobalStyles.colors.blue500 },
+        tabBarActiveTintColor: GlobalStyles.colors.white,
+        tabBarInactiveTintColor: GlobalStyles.colors.blue300,
         headerRight: ({ tintColor }) => (
           <IconButton
             icon="add"
@@ -76,7 +76,7 @@ export default function App() {
         <NavigationContainer>
           <Stack.Navigator
             screenOptions={{
-              headerStyle: { backgroundColor: GlobalStyles.colors.primary500 },
+              headerStyle: { backgroundColor: GlobalStyles.colors.blue500 },
               headerTintColor: "white",
             }}
           >
@@ -100,7 +100,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: GlobalStyles.colors.grey,
     alignItems: "center",
     justifyContent: "center",
   },

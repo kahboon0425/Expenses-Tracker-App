@@ -5,10 +5,10 @@ import ExpensesSummary from "./ExpensesSummary";
 import { LinearGradient } from "expo-linear-gradient";
 
 function ExpensesOutput({ expenses, expensesPeriod, fallbackText }) {
-  let content =<Text style={styles.infoText}>{fallbackText}</Text>
+  let content = <Text style={styles.infoText}>{fallbackText}</Text>;
 
-  if(expenses.length >0) {
-    content=<ExpensesList expenses={expenses} />
+  if (expenses.length > 0) {
+    content = <ExpensesList expenses={expenses} />;
   }
   return (
     // <LinearGradient
@@ -18,7 +18,7 @@ function ExpensesOutput({ expenses, expensesPeriod, fallbackText }) {
     //   >
 
     <View style={styles.outerContainer}>
-      <ExpensesSummary expenses={expenses} periodName={expensesPeriod}  />
+      <ExpensesSummary expenses={expenses} periodName={expensesPeriod} />
       {/* <ExpensesList expenses={expenses} /> */}
       {content}
     </View>
@@ -35,13 +35,12 @@ const styles = StyleSheet.create({
   outerContainer: {
     flex: 1,
     padding: 20,
-
-    backgroundColor: GlobalStyles.colors.primary100,
+    backgroundColor: GlobalStyles.colors.white,
   },
-  infoText:{
-    color:GlobalStyles.colors.primary300,
-    fontSize:16,
-    textAlign:"center",
-    marginTop:32
-  }
+  infoText: {
+    color: GlobalStyles.colors.grey,
+    fontSize: 16,
+    textAlign: "center",
+    marginTop: 32,
+  },
 });

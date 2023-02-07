@@ -40,38 +40,51 @@ const styles = StyleSheet.create({
   itemContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    backgroundColor: "white",
+    // backgroundColor: GlobalStyles.colors.blue100,
     paddingHorizontal: 20,
     paddingVertical: 15,
     marginVertical: 10,
     marginHorizontal: 5,
     borderRadius: 8,
+    borderWidth: 1,
+    borderColor: GlobalStyles.colors.blue500,
     alignItems: "center",
-    elevation: 4,
-    opacity: 0.9,
+    // shadowColor: GlobalStyles.colors.grey,
+    // shadowOpacity: 0.6,
+    // elevation: 8,
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 3
+    // }
   },
   leftContainer: {
     flexDirection: "column",
     marginRight: 20,
   },
   description: {
-    color: GlobalStyles.colors.primary400,
+    color: GlobalStyles.colors.blue500,
     fontSize: 19,
     fontWeight: "bold",
   },
   date: {
-    color: GlobalStyles.colors.primary300,
+    color: GlobalStyles.colors.blue400,
     paddingTop: 5,
     fontSize: 15,
   },
   priceContainer: {
-    backgroundColor: GlobalStyles.colors.primary30,
+    backgroundColor: GlobalStyles.colors.blue400,
     // opacity:.40,
     padding: 10,
-    borderRadius: 15,
-    // elevation:8
+    borderRadius: 10,
+    shadowColor: GlobalStyles.colors.grey,
+    shadowOpacity: 0.6,
+    elevation: 10,
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
   },
   amount: {
-    color: GlobalStyles.colors.primary500,
+    color: GlobalStyles.colors.white,
   },
 });

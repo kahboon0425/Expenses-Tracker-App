@@ -1,11 +1,12 @@
 import { useLayoutEffect } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TextInput } from "react-native";
 import ExpensesOutput from "../components/expenses/ExpensesOutput";
 import Button from "../components/UI/Button";
 import IconButton from "../components/UI/IconButton";
 import { GlobalStyles } from "../constants/color";
 import { ExpensesContext } from "../store/expenses-context";
 import { useContext } from "react";
+import ExpenseForm from "../components/ManageExpense/ExpenseForm";
 
 function ManageExpenses({ route, navigation }) {
   const expensesCtx = useContext(ExpensesContext);
@@ -17,6 +18,10 @@ function ManageExpenses({ route, navigation }) {
   // !! lets you convert a non-Boolean value to Boolean
   // so here we have true if we are editing and false if we are adding
   const isEditing = !!editedExpenseId;
+
+  const selectedExpense = expensesCtx.expenses.find(
+    (expense) => expense.id === editedExpenseId
+  );
 
   //  take a function that should be executed, and an array of dependencies to control when this function should be re-exexuted
   useLayoutEffect(() => {
@@ -34,11 +39,11 @@ function ManageExpenses({ route, navigation }) {
     navigation.goBack();
   }
 
-  function confirmHandler() {
-    if (isEditing){
-      expensesCtx.updateExpense(editedExpenseId,{description:"Test!!!", amount:29.99, date:new Date("2023-02-05")});
-    }else{
-      expensesCtx.addExpense({description:"Test", amount:19.99, date:new Date("2023-02-06")});
+  function confirmHandler(expenseData) {
+    if (isEditing) {
+      expensesCtx.updateExpense(editedExpenseId, expenseData);
+    } else {
+      expensesCtx.addExpense(expenseData);
     }
 
     navigation.goBack();
@@ -46,21 +51,19 @@ function ManageExpenses({ route, navigation }) {
 
   return (
     <View style={styles.container}>
-      <View style={styles.buttons}>
-        <Button style={styles.button} mode="flat" onPress={cancelHandler}>
-          Cancel
-        </Button>
-        {/* Check if "isEditing" is true. if it is true display Update otherwise display Add button*/}
-        <Button style={styles.button} onPress={confirmHandler}>
-          {isEditing ? "Update" : "Add"}
-        </Button>
-      </View>
+      <ExpenseForm
+        onCancel={cancelHandler}
+        onSubmit={confirmHandler}
+        submitButtonLabel={isEditing ? "Update" : "Add"}
+        defaultValues={selectedExpense}
+      />
+
       {/*  check if isEditing == True, and if it is true, display icon button  */}
       {isEditing && (
         <View style={styles.deleteContainer}>
           <IconButton
             icon="trash"
-            color={GlobalStyles.colors.primary600}
+            color={GlobalStyles.colors.blue500}
             size={36}
             onPress={deleteExpenseHandler}
           />
@@ -76,22 +79,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 24,
-    backgroundColor: GlobalStyles.colors.primary300,
+    backgroundColor: GlobalStyles.colors.white,
   },
-  buttons: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  button: {
-    minWidth: 120,
-    marginHorizontal: 8,
-  },
+
   deleteContainer: {
     marginTop: 16,
     paddingTop: 8,
     borderTopWidth: 2,
-    borderTopColor: GlobalStyles.colors.primary600,
+    borderTopColor: GlobalStyles.colors.blue500,
     alignItems: "center",
   },
 });

@@ -23,21 +23,28 @@ const styles = StyleSheet.create({
   titleContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    // backgroundColor: "white",
-    borderColor: GlobalStyles.colors.primary400,
-    borderWidth: 2,
+    backgroundColor: GlobalStyles.colors.yellow,
+    // borderColor: GlobalStyles.colors.blue500,
+    // borderWidth: 2,
     borderRadius: 8,
     padding: 15,
     marginBottom: 15,
+    shadowColor: GlobalStyles.colors.grey,
+    shadowOpacity: 0.6,
+    elevation: 18,
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
   },
   titleColor: {
     fontSize: 18,
-    color: GlobalStyles.colors.primary400,
+    color: GlobalStyles.colors.white,
   },
 
   textColor: {
     fontSize: 20,
-    color: GlobalStyles.colors.primary500,
+    color: GlobalStyles.colors.white,
     fontWeight: "bold",
   },
 });
